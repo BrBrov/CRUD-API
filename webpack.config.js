@@ -4,6 +4,7 @@ import { config } from 'dotenv';
 config();
 import webpack from 'webpack';
 import NodemonPlugin from 'nodemon-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
 
 
 const __filename = url.fileURLToPath(import.meta.url);
@@ -35,5 +36,6 @@ export default {
       script: path.resolve('./dist/server.js'),
       delay: 500
     }),
+    [new ESLintPlugin()]
   ],
 };
