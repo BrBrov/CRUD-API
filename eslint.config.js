@@ -1,24 +1,24 @@
-export default {
+export default [{
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.json',
-    tsconfigRootDir: __dirname,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint/eslint-plugin', 'airbnb', 'airbnb-typescript'],
+  plugins: ['import', '@typescript-eslint', 'airbnb', 'airbnb-typescript'],
   extends: [
     'airbnb',
     'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:import/warnings'
   ],
-  root: true,
   env: {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslin.config.js'],
   rules: {
+    semi: "error",
     "quotes": ["error", "double"]
-  },
-}
+  }
+}];

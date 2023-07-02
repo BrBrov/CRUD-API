@@ -5,25 +5,25 @@ config();
 import webpack from 'webpack';
 import NodemonPlugin from 'nodemon-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
+import options from './eslint.config.js';
 
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  target: 'node',
   entry: './src/server.ts',
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.ts'],
   },
   output: {
     filename: 'server.js',
@@ -31,11 +31,11 @@ export default {
   },
   plugins: [
     new webpack.EnvironmentPlugin(['PORT']),
-    new NodemonPlugin({
-      watch: path.resolve('./dist/server.js'),
-      script: path.resolve('./dist/server.js'),
-      delay: 500
-    }),
-    [new ESLintPlugin()]
+    new NodemonPlugin(),
+    new ESLintPlugin(
+      {
+        baseConfig: options[0]
+      }
+    )
   ],
 };
