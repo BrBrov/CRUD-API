@@ -5,7 +5,7 @@ config();
 import webpack from 'webpack';
 import NodemonPlugin from 'nodemon-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
-import options from './eslint.config.js';
+import options from './.eslintrc.cjs';
 
 
 const __filename = url.fileURLToPath(import.meta.url);
