@@ -16,6 +16,11 @@ module.exports = {
     'rules': {
         'quotes': ['error', 'single'],
         'semi': 'error',
-        'prefer-const': 'error'
+        'prefer-const': 'error',
+        '@typescript-eslint/no-eq-null': true,
+        '@typescript-eslint/no-non-null-assertion': true,
+        '@typescript-eslint/unified-signatures': false,
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-undefined': true
     }
 };

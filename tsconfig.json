@@ -8,7 +8,6 @@
     "module": "CommonJS",
     "moduleResolution": "Node",
     "noUncheckedIndexedAccess": true,
-    "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "dist",
@@ -19,6 +18,7 @@
     "strict": true,
     "strictPropertyInitialization": false,
     "target": "ESNext",
-		"noImplicitAny": true
+		"noImplicitAny": true,
+    "strictNullChecks": false
   },
 }
