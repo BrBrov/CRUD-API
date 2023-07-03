@@ -3,6 +3,7 @@ import { database, DataBase } from '../db/db';
 import User from '../models/user';
 import StatusCodes from '../models/status-codes';
 import UserChecker from '../utilites/user-checker';
+import url from 'node:url';
 
 export default class PostHandler {
 	private database: DataBase;
@@ -13,12 +14,18 @@ export default class PostHandler {
 	}
 
 	private handler(req: IncomingMessage, res: ServerResponse): void {
+
+		if (req.url !== '/api/users') {
+			this.sendErr(res);
+			return;
+		}
+
 		req.on('data', (data) => {
-			const dataResived: string = data.toString();		
+			const dataResived: string = data.toString();
 			const user = JSON.parse(dataResived) as User;
 
 			if (new UserChecker(user).result()) {
-				
+
 				const result: User | null = this.database.addUser(user);
 
 				if (result) {
@@ -39,7 +46,7 @@ export default class PostHandler {
 			}
 		})
 	}
-	
+
 
 	private sendErr(res: ServerResponse): void {
 		res.statusCode = StatusCodes.Invalid;
