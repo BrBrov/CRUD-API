@@ -21,7 +21,6 @@ export default class PostHandler {
 				
 				const result: User | null = this.database.addUser(user);
 
-				console.log(result);
 				if (result) {
 					res.statusCode = StatusCodes.Created;
 					res.write(JSON.stringify(
