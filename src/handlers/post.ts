@@ -3,7 +3,6 @@ import { database, DataBase } from '../db/db';
 import User from '../models/user';
 import StatusCodes from '../models/status-codes';
 import UserChecker from '../utilites/user-checker';
-import url from 'node:url';
 
 export default class PostHandler {
 	private database: DataBase;
