@@ -57,7 +57,7 @@ export default class GetHandler {
 		res.statusCode = StatusCodes.Invalid;
 		res.write(JSON.stringify(
 			{
-				status: StatusCodes.Undefined,
+				status: StatusCodes.Invalid,
 				data: 'Wrong API request'
 			}));
 		res.end();
