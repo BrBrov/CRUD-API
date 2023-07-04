@@ -25,8 +25,6 @@ export default class PutHandler {
 		const id = reqArr[2];
 		const api = reqArr.slice(0, 2).join('/');
 
-		console.log(id);
-
 		if (api !== 'api/users') {
 			this.sendErr(res);
 			return;
@@ -41,7 +39,6 @@ export default class PutHandler {
 				const newUser = JSON.parse(userData) as User;
 
 				if (id !== newUser.id) {
-					console.log('++++++++');
 					this.sendErr(res);
 					return;
 				}
@@ -76,7 +73,7 @@ export default class PutHandler {
 		res.statusCode = StatusCodes.Invalid;
 		res.write(JSON.stringify(
 			{
-				status: StatusCodes.Undefined,
+				status: StatusCodes.Invalid,
 				data: 'Wrong API request'
 			}));
 		res.end();
