@@ -14,9 +14,6 @@ export default class GetHandler {
 		const parseURL: Array<string> = req.url.split('/').slice(1);
 		const api: string[] | null = parseURL.length > 1 ? parseURL.slice(0, 2) : null;
 		const id: string | null = parseURL[2] ? parseURL[2] : null;
-
-		// console.log(parseURL);
-		// console.log(api.join('/'));
 		
 
 		if (!api || api.join('/') !== 'api/users') {

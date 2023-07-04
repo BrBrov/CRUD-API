@@ -37,7 +37,14 @@ export default class PostHandler {
 					));
 					res.end();
 				} else {
-					this.sendErr(res);
+					res.statusCode = StatusCodes.Undefined;
+					res.write(JSON.stringify(
+						{
+							status: StatusCodes.Undefined,
+							data: 'User already have been exits'
+						}
+					));
+					res.end();
 				}
 
 			} else {
@@ -51,7 +58,7 @@ export default class PostHandler {
 		res.statusCode = StatusCodes.Invalid;
 		res.write(JSON.stringify(
 			{
-				status: StatusCodes.Undefined,
+				status: StatusCodes.Invalid,
 				data: 'Wrong API request'
 			}
 		));

@@ -28,12 +28,12 @@ export class DataBase {
 		return user ? user : null;
 	}
 
-	public updateUser(user: User): User | null {
-		const userIndex: number = this.database.findIndex((item: User) => item.id === user.id);
+	public updateUser(id: string, user: User): User | null {
+		const userIndex: number = this.database.findIndex((item: User) => item.id === id);
 
 		if (userIndex == -1) return null;
-		const returnUser = { ...this.database[userIndex], ... user };
-		return returnUser;
+		this.database[userIndex] = { ...this.database[userIndex], ... user };
+		return user;
 	}
 
 	public deleteUser(user: User): boolean {
